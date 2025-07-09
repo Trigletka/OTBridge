@@ -2,7 +2,7 @@ import logging
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from aiohttp import web
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
-from create_bot import bot, dp, BASE_URL, WEBHOOK_PATH, HOST, PORT, ADMIN_ID, botDS
+from create_bot import bot, dp, BASE_URL, WEBHOOK_PATH, HOST, PORT, ADMIN_ID, botDS, DS_TOKEN
 from hendlers.start import router
 import asyncio
 
@@ -61,7 +61,7 @@ async def start_telegram():
 # Основная функция, которая запускает приложение
 async def main():
     telegram_task = asyncio.create_task(start_telegram())
-    discord_task = asyncio.create_task(botDS.start("MTMxNjkxMDc0NzkyMTU1MTQ3MQ.GUj0LD.oi9U0sOUh_XIsXi8MOXdWC4y7va67UBfUrVmbQпш"))
+    discord_task = asyncio.create_task(botDS.start(DS_TOKEN))
 
     await asyncio.gather(telegram_task, discord_task)
 

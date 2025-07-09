@@ -12,6 +12,7 @@ PORT = int(config("PORT"))
 WEBHOOK_PATH = f'/{BOT_TOKEN}'
 BASE_URL = config("BASE_URL")
 DISCORD_CHANNEL_ID = int(config("DS_ID"))
+DS_TOKEN = config("DS_TOKEN")
 
 intents = Intents.default()
 intents.message_content = True
