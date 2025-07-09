@@ -4,11 +4,12 @@ from aiogram.enums import ParseMode
 from decouple import config
 from discord import Intents
 from discord.ext import commands
+import os
 
 ADMIN_ID = int(config('ADMIN_ID'))
 BOT_TOKEN = config("BOT_TOKEN")
 HOST = config("HOST")
-PORT = int(config("PORT"))
+PORT = int(os.environ.get("PORT", 8080))
 WEBHOOK_PATH = f'/{BOT_TOKEN}'
 BASE_URL = config("BASE_URL")
 DISCORD_CHANNEL_ID = int(config("DS_ID"))
