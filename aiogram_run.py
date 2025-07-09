@@ -61,7 +61,7 @@ async def start_telegram():
 # Основная функция, которая запускает приложение
 async def main():
     telegram_task = asyncio.create_task(start_telegram())
-    discord_task = asyncio.create_task(botDS.start("MTMxNjkxMDc0NzkyMTU1MTQ3MQ.Gy_SP4.UsO-g1Vwx5xDtbklbhOpcmrrKOIJAcrvC6R8aE"))
+    discord_task = asyncio.create_task(botDS.start("MTMxNjkxMDc0NzkyMTU1MTQ3MQ.GUj0LD.oi9U0sOUh_XIsXi8MOXdWC4y7va67UBfUrVmbQпш"))
 
     await asyncio.gather(telegram_task, discord_task)
 
