@@ -30,6 +30,10 @@ async def photo_or_video_handler(message: Message) -> None:
         file_id = message.video.file_id
         filename = "video.mp4"
         content_type = "video/mp4"
+    elif message.animation:
+        file_id = message.animation.file_id
+        filename = "anim.gif"
+        content_type = "animation/gif"
     else:
         return
 
