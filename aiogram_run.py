@@ -46,9 +46,13 @@ async def start_telegram():
 
     logging.info("Telegram webhook server started.")
 
-    while True:
-        await asyncio.sleep(3600)
-
+    try:
+        while True:
+            await asyncio.sleep(3600)
+    finally:
+        await on_shutdown()
+        await runner.cleanup()
+        
 # запуск
 async def main():
     telegram_task = asyncio.create_task(start_telegram())
