@@ -13,7 +13,7 @@ async def set_commands():
     await bot.set_my_commands(commands_tg, BotCommandScopeDefault())
 
 
-# Функция при запуске
+# Функция при запуске бота
 async def on_startup() -> None:
     await set_commands()
     await bot.set_webhook(f"{BASE_URL}{WEBHOOK_PATH}")
@@ -46,13 +46,9 @@ async def start_telegram():
 
     logging.info("Telegram webhook server started.")
 
-    try:
-        while True:
-            await asyncio.sleep(3600)
-    finally:
-        await on_shutdown()
-        await runner.cleanup()
-        
+    while True:
+        await asyncio.sleep(3600)
+
 # запуск
 async def main():
     telegram_task = asyncio.create_task(start_telegram())
